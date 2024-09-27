@@ -1,0 +1,10 @@
+<div id="box-main">
+    <button (click)="addStudent()">Agregar Student</button>
+    <button (click)="getAll()">Cargar datos</button>
+    <div id="box-card" *ngFor="let student of students">
+        <app-card [student] = "student" (messageEvent)="receiveMessage($event)"></app-card>
+    </div>
+</div>
+<div>
+    <app-student></app-student>
+</div>

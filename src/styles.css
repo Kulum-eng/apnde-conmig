@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    width: 102vw; 
+    height: auto; 
+    min-height: 100vh; 
+    overflow-x: hidden; 
+}
