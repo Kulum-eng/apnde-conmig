@@ -6,15 +6,20 @@ import { CardComponent } from './component/card/card.component';
 import { InicioComponent } from './component/inicio/inicio.component';
 import { ReglasComponent } from './component/reglas/reglas.component';
 
-
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, CommonModule,HeaderComponent, CardComponent, InicioComponent, HeaderComponent, ReglasComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true, 
+  imports: [
+    CommonModule, 
+    RouterOutlet,
+    HeaderComponent, 
+    CardComponent, 
+    InicioComponent, 
+    ReglasComponent 
+  ],
+  templateUrl: './app.component.html', 
+  styleUrls: ['./app.component.css'] 
 })
-
 export class AppComponent {
-  texto = 'Universidad ';
-}    
+  texto = 'Universidad';
+}
