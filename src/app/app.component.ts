@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './component/header/header.component';
 import { CardComponent } from './component/card/card.component';
-import { InicioComponent } from './component/inicio/inicio.component';
 import { ReglasComponent } from './component/reglas/reglas.component';
+import { HomeComponent } from './component/home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ import { ReglasComponent } from './component/reglas/reglas.component';
     RouterOutlet,
     HeaderComponent, 
     CardComponent, 
-    InicioComponent, 
+    HomeComponent,
     ReglasComponent 
   ],
   templateUrl: './app.component.html', 

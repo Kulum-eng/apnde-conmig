@@ -1,114 +1,21 @@
-#rules-section {
-  padding: 0cm 2cm;
-  background-color: black;
-  color: white;
-  position: relative; 
-  z-index: 1; 
-  margin-top: -5cm; 
+.border-container {
+  position: relative;
+  /* Aquí puedes ajustar otros estilos de contenedor */
 }
 
-.orange-line-left {
-  width: 3px;
-  height: 851px;
-  background-color: orange; 
-  position: absolute; 
-  left: 0; 
-  top: -0px; 
-  bottom: -10px; 
-  z-index: 1; 
+.app-card {
+  position: absolute;
+  top: 0; /* Asegúrate de ajustar el posicionamiento */
+  left: 0;
+  width: 100%;
+  z-index: 10; /* Un número alto para asegurar que esté encima de los demás elementos */
 }
 
-.orange-line-right {
-  width: 3px;
-  height: 851px; 
-  background-color: orange; 
-  position: absolute; 
-  right: 0; 
-  top: 0px; 
-  bottom: -0px; 
-  z-index: 1; 
+.top-image, .bottom-image {
+  width: 100%;
+  height: auto;
 }
 
-.image-container {
-  text-align: left; 
-  margin-top: 1cm; 
-  margin-left: -0.9cm;
-}
-
-.card-image {
-  width: calc(100% + 6cm); 
-  max-width: 410px; 
-  height: auto; 
-  top: 8px;
-  object-fit: cover; 
-  border-radius: 0px;
-  box-shadow: 0 0 0px rgba(255, 255, 255, 0.5); 
-  background-color: transparent; 
-}
-
-
-#rules-section h2 {
-  color: white;
-  text-align: left;
-  margin-bottom: 1cm; 
-  margin-top: -9cm;
-  font-size: 4em; 
-  transition: color 0.3s ease; 
-  position: relative; 
-  z-index: 2; 
-  animation: neon-effect 3s infinite alternate; 
-}
-
-@keyframes neon-effect {
-  0% {
-      text-shadow: 
-          0 0 2px rgba(255, 255, 255, 0.5), 
-          0 0 4px rgba(255, 255, 255, 0.5), 
-          0 0 6px rgba(255, 255, 255, 0.5), 
-          0 0 8px rgba(255, 255, 255, 0.5), 
-          0 0 10px rgba(255, 255, 255, 0.5);
-  }
-  100% {
-      text-shadow: 
-          0 0 10px rgba(255, 255, 255, 0.5), 
-          0 0 15px rgba(255, 255, 255, 0.5), 
-          0 0 20px rgba(255, 255, 255, 0.5), 
-          0 0 25px rgba(255, 255, 255, 0.5), 
-          0 0 30px rgba(255, 255, 255, 0.5);
-  }
-}
-
-#rules-section h3 {
-  color: white;
-  text-align: left;
-  margin-bottom: 2cm; 
-  margin-top: -8cm; 
-  font-size: 2em; 
-  transition: color 0.3s ease; 
-  position: relative; 
-  z-index: 2; 
-}
-
-#rules-section h3:hover {
-  color: #ff6700; 
-}
-
-.orange-line {
-  width: calc(100% - 12px); 
-  height: 0.3px; 
-  background-color: orange; 
-  position: absolute; 
-  top: -0.2px; 
-  left: 1px; 
-  z-index: 1;
-}
-
-.orange-line-bottom {
-  width: calc(100% - 11px); 
-  height: 0.9px; 
-  background-color: orange; 
-  position: absolute; 
-  bottom: 2; 
-  left: 9px; 
-  top: 850px; 
+.rules-text {
+  text-align: center;
 }
