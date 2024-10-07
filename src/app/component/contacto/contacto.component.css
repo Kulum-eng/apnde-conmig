@@ -1,0 +1,24 @@
+.full-screen-container {
+    width: 112vw; 
+    height: 100vh; 
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.minimap {
+    position: relative;
+    margin-left: -25cm; 
+}
+
+.contact-title {
+    color: rgb(0, 0, 0);         
+    font-weight: bold;           
+    font-size: 3rem;              
+    margin-bottom: 10px;         
+    margin-top: -14cm;            
+    margin-left: 0cm; 
+    text-align: center;           
+}

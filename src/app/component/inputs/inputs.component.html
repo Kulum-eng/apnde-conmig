@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="saveData()">
+    <div formArrayName="inputs">
+      <div *ngFor="let input of inputsArray.controls; let i = index">
+        <label>{{ getLabel(i) }}</label>
+        <input 
+          [formControlName]="i" 
+          [placeholder]="getPlaceholder(i)" 
+          [type]="i === 8 ? 'date' : (i === 9 ? 'number' : 'text')"
+        />
+      </div>
+    </div>
+  
+    <div>
+      <label>Género</label>
+      <select formControlName="genero">
+        <option value="" disabled>Seleccione su género</option>
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+      </select>
+    </div>
+  
+    <div>
+      <label>Sufre de algo?</label>
+      <select formControlName="sufre">
+        <option value="" disabled>Seleccione una opción</option>
+        <option value="si">Sí</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+  
+    <div>
+      <label>Es alérgico a algún medicamento?</label>
+      <select formControlName="alergico">
+        <option value="" disabled>Seleccione una opción</option>
+        <option value="si">Sí</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+  
+    <button type="submit">Enviar</button>
+  </form>
+  

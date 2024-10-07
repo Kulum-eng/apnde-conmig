@@ -1,0 +1,16 @@
+<div class="full-screen">
+    <img src="assets/dino.png" alt="Dino" class="full-image" />
+    <div class="container">
+        <h1 class="comments-title">Comentarios</h1>
+        <input type="text" class="input-field" placeholder="Escribe aquí...">
+        <div class="stars">
+            <span 
+                class="star" 
+                *ngFor="let star of [1, 2, 3, 4, 5]" 
+                [attr.data-value]="star">
+                &#9733;
+            </span>
+        </div>
+        <button class="submit-button">Enviar</button>
+    </div>
+</div>
