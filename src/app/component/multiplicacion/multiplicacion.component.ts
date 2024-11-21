@@ -28,14 +28,25 @@ export class MultiplicacionComponent {
   firstNumber: number | null = null;
   secondNumber: number | null = null;
 
-  isEditing: boolean = false;
   isIncorrect: boolean = false;
   isCorrect: boolean = false;
-  resultInput: string = '?';
   userResult: string = '';
 
+  private spinAudio = new Audio('assets/giro-rulet.mp3'); 
+
   startSpinning(): void {
-    const speed = 50 + Math.random() * 50;
+    if (this.firstNumber && this.secondNumber) {
+      alert('Reinicia para girar de nuevo.');
+      return;
+    }
+
+    const speed = 50 + Math.random() * 50; 
+    const totalSpins = 360 * 5;
+
+    // Play the spinning audio
+    this.spinAudio.loop = true;
+    this.spinAudio.play();
+
     this.spinInterval = setInterval(() => {
       this.rotation += 10;
       const wheel = document.getElementById('wheel')!;
@@ -44,7 +55,9 @@ export class MultiplicacionComponent {
 
     setTimeout(() => {
       clearInterval(this.spinInterval);
-      this.rotation = this.rotation % 360;
+      this.rotation = (this.rotation + totalSpins) % 360;
+      this.spinAudio.pause();
+      this.spinAudio.currentTime = 0; 
       this.selectNumberFromWheel();
     }, 3000);
   }
@@ -61,35 +74,23 @@ export class MultiplicacionComponent {
     }
   }
 
-  enableEditing(): void {
-    this.isEditing = true;
-    this.resultInput = this.userResult || '';
-  }
-
-  disableEditing(): void {
-    if (!this.userResult) {
-      this.resultInput = '?';
-    }
-    this.isEditing = false;
-  }
-
   verifyResult(): void {
-    const correctResult = (this.firstNumber || 0) * (this.secondNumber || 0);
+    const correctResult = (this.firstNumber ?? 0) * (this.secondNumber ?? 0);
+
     if (parseInt(this.userResult, 10) === correctResult) {
       this.isIncorrect = false;
       this.isCorrect = true;
-      this.playCorrectAudio();
+      this.playAudio('assets/correcto.mp3');
     } else {
       this.isCorrect = false;
       this.isIncorrect = true;
-      this.playIncorrectAudio();
+      this.playAudio('assets/mala.mp3');
     }
   }
 
   reset(): void {
     this.firstNumber = null;
     this.secondNumber = null;
-    this.resultInput = '?';
     this.userResult = '';
     this.isIncorrect = false;
     this.isCorrect = false;
@@ -99,17 +100,8 @@ export class MultiplicacionComponent {
     wheel.style.transform = 'rotate(0deg)';
   }
 
-  private playIncorrectAudio(): void {
-    const audio = document.getElementById('incorrect-audio') as HTMLAudioElement;
-    if (audio) {
-      audio.play();
-    }
-  }
-
-  private playCorrectAudio(): void {
-    const audio = document.getElementById('correct-audio') as HTMLAudioElement;
-    if (audio) {
-      audio.play();
-    }
+  private playAudio(src: string): void {
+    const audio = new Audio(src);
+    audio.play();
   }
 }

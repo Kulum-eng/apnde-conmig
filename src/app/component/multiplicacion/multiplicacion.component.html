@@ -2,12 +2,14 @@
   class="multiplicacion-container"
   style="background: url('assets/fondo-multiplicacion.jpg') no-repeat center center/cover; width: 100vw; height: 100vh;"
 >
-  <!-- Contenedor de ruleta e inputs -->
+  <div id="yt-player"></div> <!-- Hidden YouTube player -->
   <div class="content-section">
-    <!-- Nueva ruleta -->
+    <div class="text-image-section">
+      <img src="assets/imagen.jpg" alt="imagende" />
+    </div>
+
     <div class="wheel-section">
       <div class="wheel-container">
-        <!-- Ruleta con números -->
         <div class="wheel" id="wheel">
           <div
             class="wheel-segment"
@@ -26,14 +28,12 @@
         <div class="arrow"></div>
       </div>
 
-      <!-- Botones -->
       <div class="spin-buttons">
         <button class="spin-button" (click)="startSpinning()">Girar</button>
         <button class="reset-button" (click)="reset()">Reiniciar</button>
       </div>
     </div>
 
-    <!-- Inputs a la derecha -->
     <div class="inputs-section">
       <input
         type="text"
@@ -54,26 +54,14 @@
       <input
         type="text"
         class="result-input"
-        [value]="resultInput"
-        (click)="enableEditing()"
-        (blur)="disableEditing()"
-        [ngClass]="{'input-error': isIncorrect, 'input-correct': isCorrect}"
-        [readOnly]="!isEditing"
+        [ngClass]="{ 'input-error': isIncorrect, 'input-correct': isCorrect }"
+        placeholder="?"
         [(ngModel)]="userResult"
       />
     </div>
+  </div>
 
-    <!-- Botón verificar -->
-    <div class="verify-button-section">
-      <button class="verify-button" (click)="verifyResult()">Verificar</button>
-    </div>
+  <div class="verify-button-section">
+    <button class="verify-button" (click)="verifyResult()">Verificar</button>
   </div>
 </div>
-
-<!-- Audios -->
-<audio id="incorrect-audio">
-  <source src="assets/mala.mp3" type="audio/mpeg" />
-</audio>
-<audio id="correct-audio">
-  <source src="assets/correcto.mp3" type="audio/mpeg" />
-</audio>
