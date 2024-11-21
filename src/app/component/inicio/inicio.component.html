@@ -1,5 +1,67 @@
-<div class="white-background">
-    <h1 class="welcome-title">Bienvenido a HappyKids</h1>
-    <p class="summary-text">En esta aplicación, la salud de los pequeños de la casa es muy importante, por eso aquí te brindamos herramientas y recursos para cuidar su bienestar, asegurando que cada momento sea seguro y divertido.</p>
-    <img src="assets/init.png" alt="Descripción de la imagen" class="image-in-white-background">
+<div class="video-container">
+  <video src="assets/init1.mp4" autoplay loop muted class="video"></video>
+
+  <div class="sidebar" [class.open]="sidebarOpen">
+    <button class="toggle-button" (click)="toggleSidebar()">
+      <img src="assets/menu.png" alt="Menu" class="menu-icon" />
+    </button>
+
+    <div class="balloons-column left">
+      <div class="balloon-container">
+        <button class="balloon" (click)="navigateTo('ajustes')">
+          <img src="assets/ajuste.png" alt="Settings" class="icon-image" />
+        </button>
+        <div class="balloon-string"></div>
+        <img src="assets/moño.png" alt="Bow" class="bow-image" />
+      </div>
+      <div class="balloon-container">
+        <button class="balloon" (click)="navigateTo('carrito')">
+          <img src="assets/carrito.png" alt="Store" class="icon-image" />
+        </button>
+        <div class="balloon-string"></div>
+        <img src="assets/moño_verde.png" alt="Bow" class="bow-image" />
+      </div>
+
+      <div class="balloon-container">
+        <button class="balloon" (click)="navigateTo('avatar')">
+          <img src="assets/avatar.png" alt="Cart" class="icon-image" />
+        </button>
+        <div class="balloon-string"></div>
+        <img src="assets/moño_azul.png" alt="Bow" class="bow-image" />
+      </div>
+    </div>
+
+    <!-- Right Column Balloons -->
+    <div class="balloons-column right">
+      <div class="balloon-container">
+        <button class="balloon" (click)="navigateTo('notificaciones')">
+          <img src="assets/noti.png" alt="Avatar" class="icon-image" />
+        </button>
+        <div class="balloon-string"></div>
+        <img src="assets/moño_azul.png" alt="Bow" class="bow-image" />
+      </div>
+
+      <div class="balloon-container">
+        <button class="balloon" (click)="navigateTo('musica')">
+          <img src="assets/musica.png" alt="Play" class="icon-image" />
+        </button>
+        <div class="balloon-string"></div>
+        <img src="assets/moño_verde.png" alt="Bow" class="bow-image" />
+      </div>
+      <div class="balloon-container">
+        <button class="balloon" (click)="navigateTo('ayuda')">
+          <img src="assets/ayuda.png" alt="Notifications" class="icon-image" />
+        </button>
+        <div class="balloon-string"></div>
+        <img src="assets/moño.png" alt="Bow" class="bow-image" />
+      </div>
+    </div>
+
+    <div class="start-button-container">
+      <button class="start-button" (click)="navigateTo('operaciones')">
+        <img src="assets/play.png" alt="Play Icon" class="play-icon" />
+        Iniciar
+      </button>
+    </div>
+  </div>
 </div>

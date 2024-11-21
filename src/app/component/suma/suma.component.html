@@ -1,0 +1,28 @@
+<div class="suma-container">
+    <img src="assets/pizarr.jpg" alt="Background" class="background-image" />
+  
+    <table class="apple-table">
+      <tr *ngFor="let row of appleRows; let i = index">
+        <td>
+          <div class="apple-group">
+            <img *ngFor="let apple of row.redApples" [src]="apple" alt="Red Apple" class="apple-image" />
+          </div>
+        </td>
+  
+        <td class="operator">+</td>
+  
+        <td>
+          <div class="apple-group">
+            <img *ngFor="let apple of row.greenApples" [src]="apple" alt="Green Apple" class="apple-image" />
+          </div>
+        </td>
+  
+        <td class="operator">=</td>
+  
+        <td>
+          <input [(ngModel)]="answers[i]" type="number" class="answer-input" placeholder="?" />
+        </td>
+      </tr>
+    </table>
+  </div>
+  

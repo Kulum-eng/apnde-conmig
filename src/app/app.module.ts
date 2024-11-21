@@ -1,14 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ComentariosModule } from './component/comentarios/comentarios.module';
-import { InputsModule } from './component/inputs/inputs.module';
-import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Import FormsModule here
+
+import { AppComponent } from './app.component';
 
 @NgModule({
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
-    ComentariosModule,
-    InputsModule 
+    FormsModule // Ensure FormsModule is imported here
   ],
   bootstrap: [AppComponent]
 })

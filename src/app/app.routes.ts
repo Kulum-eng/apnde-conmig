@@ -1,16 +1,32 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
-import { CromocuentoComponent } from './component/cromocuento/cromocuento.component';
-import { FormularioComponent } from './component/formulario/formulario.component';
-import { ComentariosComponent } from './component/comentarios/comentarios.component';
-import { ContactoComponent } from './component/contacto/contacto.component';
-
+import { InicioComponent } from './component/inicio/inicio.component';
+import { BienvenidaComponent } from './component/bienvenida/bienvenida.component';
+import { AjustesComponent } from './component/ajustes/ajustes.component';
+import { CarritoComponent } from './component/carrito/carrito.component';
+import { AvatarComponent } from './component/avatar/avatar.component';
+import { NotificacionesComponent } from './component/notificaciones/notificaciones.component';
+import { MusicaComponent } from './component/musica/musica.component';
+import { AyudaComponent } from './component/ayuda/ayuda.component';
+import { OperacionesComponent } from './component/operaciones/operaciones.component'; 
+import { SumaComponent } from './component/suma/suma.component';
+import { RestaComponent } from './component/resta/resta.component';
+import { MultiplicacionComponent } from './component/multiplicacion/multiplicacion.component';
+import { DivisionComponent } from './component/division/division.component';
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
-    {path: 'Cromocuento', component: CromocuentoComponent},
-    {path: 'Formulario', component: FormularioComponent},
-    {path: 'Comentarios', component: ComentariosComponent},
-    {path: 'Contacto', component: ContactoComponent}
-
+    { path: '', component: HomeComponent },
+    { path: 'inicio', component: InicioComponent },
+    { path: 'bienvenida', component: BienvenidaComponent },
+    { path: 'ajustes', component: AjustesComponent },
+    { path: 'carrito', component: CarritoComponent },
+    { path: 'avatar', component: AvatarComponent },
+    { path: 'notificaciones', component: NotificacionesComponent },
+    { path: 'musica', component: MusicaComponent },
+    { path: 'ayuda', component: AyudaComponent },
+    { path: 'operaciones', component: OperacionesComponent },
+    { path: 'suma', component: SumaComponent },
+    { path: 'resta', component: RestaComponent },
+    { path: 'multiplicacion', component: MultiplicacionComponent },
+    { path: 'division', component: DivisionComponent }
 ];

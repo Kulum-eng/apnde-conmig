@@ -1,0 +1,79 @@
+<div
+  class="multiplicacion-container"
+  style="background: url('assets/fondo-multiplicacion.jpg') no-repeat center center/cover; width: 100vw; height: 100vh;"
+>
+  <!-- Contenedor de ruleta e inputs -->
+  <div class="content-section">
+    <!-- Nueva ruleta -->
+    <div class="wheel-section">
+      <div class="wheel-container">
+        <!-- Ruleta con números -->
+        <div class="wheel" id="wheel">
+          <div
+            class="wheel-segment"
+            *ngFor="let number of numbers; let i = index"
+            [style.transform]="'rotate(' + i * 45 + 'deg)'"
+            [style.background]="segmentColors[i % 4]"
+          >
+            <span
+              class="segment-number"
+              [style.transform]="'rotate(-' + i * 45 + 'deg)'"
+            >
+              {{ number }}
+            </span>
+          </div>
+        </div>
+        <div class="arrow"></div>
+      </div>
+
+      <!-- Botones -->
+      <div class="spin-buttons">
+        <button class="spin-button" (click)="startSpinning()">Girar</button>
+        <button class="reset-button" (click)="reset()">Reiniciar</button>
+      </div>
+    </div>
+
+    <!-- Inputs a la derecha -->
+    <div class="inputs-section">
+      <input
+        type="text"
+        class="number-input"
+        [value]="firstNumber || ''"
+        placeholder="?"
+        readonly
+      />
+      <span class="operation-symbol">x</span>
+      <input
+        type="text"
+        class="number-input"
+        [value]="secondNumber || ''"
+        placeholder="?"
+        readonly
+      />
+      <span class="operation-symbol">=</span>
+      <input
+        type="text"
+        class="result-input"
+        [value]="resultInput"
+        (click)="enableEditing()"
+        (blur)="disableEditing()"
+        [ngClass]="{'input-error': isIncorrect, 'input-correct': isCorrect}"
+        [readOnly]="!isEditing"
+        [(ngModel)]="userResult"
+      />
+    </div>
+
+    <!-- Botón verificar -->
+    <div class="verify-button-section">
+      <button class="verify-button" (click)="verifyResult()">Verificar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Audios -->
+<audio id="incorrect-audio">
+  <source src="assets/mala.mp3" type="audio/mpeg" />
+</audio>
+<audio id="correct-audio">
+  <source src="assets/correcto.mp3" type="audio/mpeg" />
+</audio>

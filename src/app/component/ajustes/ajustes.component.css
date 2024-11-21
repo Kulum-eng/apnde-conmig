@@ -1,0 +1,179 @@
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video {
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+  border-radius: 10px;
+  z-index: 0;
+}
+
+.settings-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.settings-panel {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
+  background: #6b3d1f;
+  border: 10px solid #53301a;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+
+.settings-title {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 3rem;
+  color: #ffcc66;
+  text-shadow: 2px 2px #47290e;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.settings-option {
+  margin-bottom: 25px;
+}
+
+.label {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1.8rem;
+  color: #ffcc66;
+  text-shadow: 1px 1px #47290e;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.value {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1.5rem;
+  color: #00aaff;
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 70%;
+  height: 10px;
+  background: #d3d3d3;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #d3d3d3;
+}
+
+.fill {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(to right, #007bff, #00aaff);
+}
+
+.thumb {
+  position: absolute;
+  top: -15px; 
+  width: 30px; 
+  height: 30px; 
+  background: #ffcc66;
+  border-radius: 5px;
+  border: 3px solid #47290e;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease-in-out;
+}
+
+.thumb:hover {
+  transform: scale(1.3);
+}
+
+.thumb:active {
+  transform: scale(1.2);
+}
+
+.toggle-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.toggle {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  color: white;
+  border: 3px solid #47290e;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.toggle.on {
+  background-color: #28a745;
+}
+
+.toggle.off {
+  background-color: #dc3545;
+}
+
+.toggle:hover {
+  transform: scale(1.1);
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.action-button {
+  padding: 10px 30px;
+  font-size: 1.5rem;
+  color: white;
+  background-color: #007bff;
+  border: 3px solid #47290e;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.action-button:hover {
+  transform: scale(1.1);
+}
+
+.action-button.back {
+  background-color: #007bff;
+}

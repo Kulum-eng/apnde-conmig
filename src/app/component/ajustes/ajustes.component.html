@@ -1,0 +1,65 @@
+<div class="settings-container">
+  <img src="assets/fondo-ajuste.jpg" alt="Background" class="background-image" />
+
+  <div class="settings-panel">
+    <h1 class="settings-title">SETTINGS</h1>
+
+    <div class="settings-option">
+      <span class="label">SOUND</span>
+      <div class="slider-container">
+        <span class="value">{{ soundValue }}%</span>
+        <div class="slider-wrapper" (mousedown)="startDrag($event, 'sound')">
+          <div class="track">
+            <div class="fill" [style.width.%]="soundValue"></div>
+          </div>
+          <div
+            class="thumb"
+            [style.left.%]="soundValue"
+          ></div>
+        </div>
+        <span class="value">100%</span>
+      </div>
+    </div>
+
+    <div class="settings-option">
+      <span class="label">MUSIC</span>
+      <div class="slider-container">
+        <span class="value">{{ musicValue }}%</span>
+        <div class="slider-wrapper" (mousedown)="startDrag($event, 'music')">
+          <div class="track">
+            <div class="fill" [style.width.%]="musicValue"></div>
+          </div>
+          <div
+            class="thumb"
+            [style.left.%]="musicValue"
+          ></div>
+        </div>
+        <span class="value">100%</span>
+      </div>
+    </div>
+
+    <div class="settings-option">
+      <span class="label">NOTIFICATIONS</span>
+      <div class="toggle-container">
+        <button
+          class="toggle on"
+          [class.active]="notifications"
+          (click)="toggleNotifications(true)"
+        >
+          ON
+        </button>
+        <button
+          class="toggle off"
+          [class.active]="!notifications"
+          (click)="toggleNotifications(false)"
+        >
+          OFF
+        </button>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button class="action-button back" (click)="goBack()">ATRÁS</button>
+    </div>
+  </div>
+</div>

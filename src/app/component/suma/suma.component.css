@@ -1,0 +1,78 @@
+.suma-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; 
+}
+
+.apple-table {
+    border-collapse: collapse;
+    width: calc(60% + 0.3cm); 
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 2px solid #000; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1; 
+    table-layout: fixed; 
+
+    position: relative;
+    top: -3cm; 
+    left: 3.3cm; 
+}
+
+.apple-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.apple-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; 
+}
+
+.apple-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.operator {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    width: 30px; 
+    padding: 0 10px; 
+}
+
+.answer-input {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.answer-input:focus {
+    box-shadow: 0 0 5px #007bff;
+}
