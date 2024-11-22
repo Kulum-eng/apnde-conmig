@@ -43,7 +43,6 @@ export class MultiplicacionComponent {
     const speed = 50 + Math.random() * 50; 
     const totalSpins = 360 * 5;
 
-    // Play the spinning audio
     this.spinAudio.loop = true;
     this.spinAudio.play();
 
