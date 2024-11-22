@@ -1,1 +1,26 @@
-<p>division works!</p>
+<div
+  class="game-container"
+  style="background-image: url('./assets/fondo-divi.avif');"
+>
+  <div class="transparent-container">
+    <div class="balloons">
+      <div
+        class="balloon"
+        *ngFor="let button of buttons; let i = index"
+        [style.marginTop]="i % 2 === 0 ? '10px' : '-10px'"
+      >
+        <img src="./assets/globo.png" alt="Globo" />
+        <button (click)="onButtonClick(button)" [style.backgroundColor]="button.color">
+          {{ button.value }}
+        </button>
+      </div>
+    </div>
+    <div class="train">
+      <div class="train-car">
+        <p>{{ question.replace('?', '') }}</p>
+        <span class="question-mark">?</span>
+      </div>
+      <img src="./assets/tren.png" alt="Tren" />
+    </div>
+  </div>
+</div>
