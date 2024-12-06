@@ -1,32 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';  // Importa ReactiveFormsModule aquí
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrarse',
   standalone: true,
+  imports: [ReactiveFormsModule], 
   templateUrl: './registrarse.component.html',
-  styleUrls: ['./registrarse.component.css'],
-  imports: [ReactiveFormsModule]  // Agrega ReactiveFormsModule en la propiedad "imports"
+  styleUrls: ['./registrarse.component.css']
 })
-export class RegistrarseComponent implements OnInit {
-  registerForm!: FormGroup;
+export class RegistrarseComponent {
+  registrarseForm = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', [Validators.required]),
+    age: new FormControl('', [Validators.required]),
+    birthdate: new FormControl('', [Validators.required])
+  });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    this.registerForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      email: ['', [Validators.required, Validators.email]]
-    });
+  onSubmit() {
+    if (this.registrarseForm.valid) {
+      console.log(this.registrarseForm.value);
+    }
   }
 
-  onSubmit(): void {
-    if (this.registerForm.valid) {
-      console.log('Formulario enviado', this.registerForm.value);
-    } else {
-      console.log('Formulario no válido');
-    }
+  navigateToLogin(): void {
+    this.router.navigate(['/login']);
   }
 }

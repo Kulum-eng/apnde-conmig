@@ -1,1 +1,38 @@
-<p>registrarse works!</p>
+<div class="registrarse-wrapper">
+    <div class="left-side"></div>
+    <div class="registrarse-container">
+      <form [formGroup]="registrarseForm" (ngSubmit)="onSubmit()">
+       
+        <div class="input-container">
+          <label for="username">Usuario:</label>
+          <input id="username" formControlName="username" type="text" required />
+        </div>
+        
+        <div class="input-container">
+          <label for="email">Correo electrónico:</label>
+          <input id="email" formControlName="email" type="email" required />
+        </div>
+        
+        <div class="input-container">
+          <label for="phone">Número telefónico:</label>
+          <input id="phone" formControlName="phone" type="tel" required />
+        </div>
+  
+        <div class="input-container">
+          <label for="age">Edad:</label>
+          <input id="age" formControlName="age" type="number" required />
+        </div>
+  
+        <div class="input-container">
+          <label for="birthdate">Fecha de nacimiento:</label>
+          <input id="birthdate" formControlName="birthdate" type="date" required />
+        </div>
+        <button type="submit" [disabled]="registrarseForm.invalid">Registrarse</button>
+      </form>
+  
+      <div class="login-link">
+        <a (click)="navigateToLogin()">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+      </div>
+    </div>
+  </div>
+  
