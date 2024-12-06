@@ -14,6 +14,8 @@ import { MultiplicacionComponent } from './component/multiplicacion/multiplicaci
 import { DivisionComponent } from './component/division/division.component';
 import { SumaComponent } from './component/suma/suma.component';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './component/login/login.component';
+import { RegistrarseComponent } from './component/registrarse/registrarse.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,5 +31,8 @@ export const routes: Routes = [
   { path: 'resta', component: RestaComponent, canActivate: [AuthGuard] },
   { path: 'multiplicacion', component: MultiplicacionComponent, canActivate: [AuthGuard] },
   { path: 'division', component: DivisionComponent, canActivate: [AuthGuard] },
-  { path: 'suma', component: SumaComponent, canActivate: [AuthGuard] }
+  { path: 'suma', component: SumaComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  
+  { path: 'registrarse', component: RegistrarseComponent }
 ];
