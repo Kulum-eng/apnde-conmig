@@ -1,28 +1,26 @@
-<div class="suma-container">
-    <img src="assets/pizarr.jpg" alt="Background" class="background-image" />
-  
-    <table class="apple-table">
-      <tr *ngFor="let row of appleRows; let i = index">
-        <td>
-          <div class="apple-group">
-            <img *ngFor="let apple of row.redApples" [src]="apple" alt="Red Apple" class="apple-image" />
-          </div>
-        </td>
-  
-        <td class="operator">+</td>
-  
-        <td>
-          <div class="apple-group">
-            <img *ngFor="let apple of row.greenApples" [src]="apple" alt="Green Apple" class="apple-image" />
-          </div>
-        </td>
-  
-        <td class="operator">=</td>
-  
-        <td>
-          <input [(ngModel)]="answers[i]" type="number" class="answer-input" placeholder="?" />
-        </td>
-      </tr>
-    </table>
+
+<div *ngIf="gameStarted" class="game-container">
+  <img src="assets/fonsuma.jpg" class="background" alt="Fondo del juego">
+
+  <div class="sum-display">
+    <span class="sum-number">{{ number1 }}</span> +
+    <span class="sum-number">{{ number2 }}</span> =
+    <span class="sum-number">?</span>
   </div>
-  
+
+  <div class="correct-answer">
+    <span class="sum-number">{{ correctAnswer }}</span>
+  </div>
+
+  <div class="rana-container">
+    <div
+      class="rana-item"
+      *ngFor="let rana of ranas"
+      [ngStyle]="{ backgroundColor: rana.selected ? rana.isCorrect ? 'green' : 'red' : 'transparent' }"
+      (click)="checkAnswer(rana)"
+    >
+      <span class="number">{{ rana.number }}</span>
+      <img src="assets/rana.png" class="rana" alt="Rana">
+    </div>
+  </div>
+</div>

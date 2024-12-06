@@ -1,36 +1,98 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-suma',
   standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './suma.component.html',
   styleUrls: ['./suma.component.css'],
+  imports: [CommonModule],
 })
-export class SumaComponent implements OnInit {
-  appleRows: { redApples: string[]; greenApples: string[] }[] = [];
-  answers: number[] = []; 
-  readonly maxPerGroup = 6; 
-  readonly totalRows = 7; 
+export class SumaComponent implements OnInit, OnDestroy {
+  ranas: { number: number; selected: boolean; isCorrect: boolean }[] = [];
+  number1: number = 0;
+  number2: number = 0;
+  correctAnswer: number = 0;
+  gameStarted: boolean = true;
+  audio!: HTMLAudioElement;
+  introAudio!: HTMLAudioElement;
 
-  ngOnInit(): void {
-    this.generateAppleGrid();
+  ngOnInit() {
+    this.generateProblem(); 
+    this.generateRanas(); 
+    this.playIntroAudio(); 
   }
 
-  generateAppleGrid(): void {
-    this.appleRows = [];
+  ngOnDestroy() {
+    if (this.audio) {
+      this.audio.pause();
+      this.audio.currentTime = 0;
+    }
+    if (this.introAudio) {
+      this.introAudio.pause();
+      this.introAudio.currentTime = 0;
+    }
+  }
 
-    for (let i = 0; i < this.totalRows; i++) {
-      const redCount = Math.floor(Math.random() * this.maxPerGroup) + 1; 
-      const greenCount = Math.floor(Math.random() * this.maxPerGroup) + 1; 
+  playIntroAudio() {
+    this.introAudio = new Audio('assets/sumas.mp3');
+    this.introAudio.play();
 
-      const redApples = Array(redCount).fill('assets/manzana_roja.png');
-      const greenApples = Array(greenCount).fill('assets/manzana_verde.png');
+    this.introAudio.onended = () => {
+      this.playBackgroundMusic();
+    };
+  }
 
-      this.appleRows.push({ redApples, greenApples });
-      this.answers.push(0); 
+  playBackgroundMusic() {
+    this.audio = new Audio('assets/sume.mp3');
+    this.audio.loop = true;
+    this.audio.play();
+  }
+
+  generateProblem() {
+    this.number1 = Math.floor(Math.random() * 8) + 1;
+    this.number2 = Math.floor(Math.random() * 8) + 1;
+    this.correctAnswer = this.number1 + this.number2;
+  }
+
+  generateRanas() {
+    this.ranas = [];
+    let correctIndex = Math.floor(Math.random() * 8);
+
+    for (let i = 0; i < 8; i++) {
+      if (i === correctIndex) {
+        this.ranas.push({
+          number: this.correctAnswer,
+          selected: false,
+          isCorrect: true,
+        });
+      } else {
+        let randomNum;
+        do {
+          randomNum = Math.floor(Math.random() * 10) + 1;
+        } while (randomNum === this.correctAnswer);
+
+        this.ranas.push({
+          number: randomNum,
+          selected: false,
+          isCorrect: false,
+        });
+      }
+    }
+  }
+
+  checkAnswer(rana: { number: number; selected: boolean; isCorrect: boolean }) {
+    if (!rana.selected) {
+      rana.selected = true;
+      rana.isCorrect = rana.number === this.correctAnswer;
+
+      const audio = new Audio();
+      if (rana.isCorrect) {
+        audio.src = 'assets/correcto.mp3';
+      } else {
+        audio.src = 'assets/mala.mp3';
+      }
+      audio.play();
     }
   }
 }

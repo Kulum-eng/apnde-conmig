@@ -9,10 +9,10 @@ import { NotificacionesComponent } from './component/notificaciones/notificacion
 import { MusicaComponent } from './component/musica/musica.component';
 import { AyudaComponent } from './component/ayuda/ayuda.component';
 import { OperacionesComponent } from './component/operaciones/operaciones.component'; 
-import { SumaComponent } from './component/suma/suma.component';
 import { RestaComponent } from './component/resta/resta.component';
 import { MultiplicacionComponent } from './component/multiplicacion/multiplicacion.component';
 import { DivisionComponent } from './component/division/division.component';
+import { SumaComponent } from './component/suma/suma.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -25,8 +25,8 @@ export const routes: Routes = [
     { path: 'musica', component: MusicaComponent },
     { path: 'ayuda', component: AyudaComponent },
     { path: 'operaciones', component: OperacionesComponent },
-    { path: 'suma', component: SumaComponent },
     { path: 'resta', component: RestaComponent },
     { path: 'multiplicacion', component: MultiplicacionComponent },
-    { path: 'division', component: DivisionComponent }
+    { path: 'division', component: DivisionComponent },
+    { path: 'suma' , component: SumaComponent}
 ];
