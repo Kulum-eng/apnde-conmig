@@ -1,66 +1,12 @@
-<div class="video-container">
+<div class="video-container" style="background-image: url('assets/inicio-fondo.jpg'); background-size: cover; background-position: center;">
   <video src="assets/i.mp4" autoplay loop muted class="video"></video>
 
-  <div class="sidebar" [class.open]="sidebarOpen">
-    <button class="toggle-button" (click)="toggleSidebar()">
-      <img src="assets/menu.png" alt="Menu" class="menu-icon" />
+  <audio src="assets/music-inicio.mp3" autoplay loop></audio>
+
+  <div class="start-button-container">
+    <button class="start-button" (click)="navigateTo('operaciones')">
+      <img src="assets/play.png" alt="Play Icon" class="play-icon" />
+      Iniciar
     </button>
-
-    <div class="balloons-column left">
-      <div class="balloon-container">
-        <button class="balloon" (click)="navigateTo('ajustes')">
-          <img src="assets/ajuste.png" alt="Settings" class="icon-image" />
-        </button>
-        <div class="balloon-string"></div>
-        <img src="assets/moño.png" alt="Bow" class="bow-image" />
-      </div>
-      <div class="balloon-container">
-        <button class="balloon" (click)="navigateTo('carrito')">
-          <img src="assets/carrito.png" alt="Store" class="icon-image" />
-        </button>
-        <div class="balloon-string"></div>
-        <img src="assets/moño_verde.png" alt="Bow" class="bow-image" />
-      </div>
-
-      <div class="balloon-container">
-        <button class="balloon" (click)="navigateTo('avatar')">
-          <img src="assets/avatar.png" alt="Cart" class="icon-image" />
-        </button>
-        <div class="balloon-string"></div>
-        <img src="assets/moño_azul.png" alt="Bow" class="bow-image" />
-      </div>
-    </div>
-
-    <div class="balloons-column right">
-      <div class="balloon-container">
-        <button class="balloon" (click)="navigateTo('notificaciones')">
-          <img src="assets/noti.png" alt="Avatar" class="icon-image" />
-        </button>
-        <div class="balloon-string"></div>
-        <img src="assets/moño_azul.png" alt="Bow" class="bow-image" />
-      </div>
-
-      <div class="balloon-container">
-        <button class="balloon" (click)="navigateTo('musica')">
-          <img src="assets/musica.png" alt="Play" class="icon-image" />
-        </button>
-        <div class="balloon-string"></div>
-        <img src="assets/moño_verde.png" alt="Bow" class="bow-image" />
-      </div>
-      <div class="balloon-container">
-        <button class="balloon" (click)="navigateTo('ayuda')">
-          <img src="assets/ayuda.png" alt="Notifications" class="icon-image" />
-        </button>
-        <div class="balloon-string"></div>
-        <img src="assets/moño.png" alt="Bow" class="bow-image" />
-      </div>
-    </div>
-
-    <div class="start-button-container">
-      <button class="start-button" (click)="navigateTo('operaciones')">
-        <img src="assets/play.png" alt="Play Icon" class="play-icon" />
-        Iniciar
-      </button>
-    </div>
   </div>
 </div>
