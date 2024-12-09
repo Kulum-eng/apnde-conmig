@@ -151,6 +151,7 @@ export class MultiplicacionComponent {
     this.showAlert = false;
     this.generateProblem();
     this.generateWheel();
+    //aqui 
   }
 
   private generateProblem() {
