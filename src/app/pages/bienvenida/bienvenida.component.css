@@ -49,29 +49,29 @@
 .green-box {
   background-color: #795548; 
   border-top-left-radius: 50px;
-  top: 7.8cm;
-  left: 21.3cm;
+  top: 10.5cm;
+  left: 16.8cm;
 }
 
 .purple-box {
   background-color: #F44336; 
   border-top-right-radius: 50px;
-  top: 9.7cm;
-  right: 20.2cm;
+  top: 10.5cm;
+  right: 17.3cm;
 }
 
 .red-box {
   background-color: #9C27B0; 
   border-bottom-left-radius: 50px;
-  top: 2.9cm;
-  right: 15.1cm;
+  top: 4.75cm;
+  right: 11.5cm;
 }
 
 .brown-box {
   background-color: #4CAF50; 
   border-bottom-right-radius: 50px;
   top: 4.8cm;
-  left: 16.2cm;
+  left: 11cm;
 }
 
 .box::before,

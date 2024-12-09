@@ -32,8 +32,6 @@ export const routes: Routes = [
   { path: 'multiplicacion', component: MultiplicacionComponent, canActivate: [AuthGuard] },
   { path: 'division', component: DivisionComponent, canActivate: [AuthGuard] },
   { path: 'suma', component: SumaComponent, canActivate: [AuthGuard] },
-  
   { path: 'login', component: LoginComponent },
-  
   { path: 'registrarse', component: RegistrarseComponent }
 ];

@@ -10,8 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
     CommonModule,         
     RouterOutlet,        
     HomeComponent,        
-   
-  ],
+    ],
   templateUrl: './app.component.html', 
   styleUrls: ['./app.component.css']   
 })

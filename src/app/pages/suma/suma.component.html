@@ -1,4 +1,16 @@
 
+<div *ngIf="showAlert" class="intro-alert">
+  <img src="assets/hablando.gif" alt="Introducción" />
+  <div class="intro-text">{{ introText }}</div>
+  <button (click)="startGame()">Next</button>
+</div>
+
+<div *ngIf="gameWon" class="victory-alert">
+  <img src="assets/celebracion.gif" alt="Felicidades" />
+  <div class="victory-text">¡Felicidades, has ganado!</div>
+  <button (click)="resetGame()">Jugar de nuevo</button>
+</div>
+
 <div *ngIf="gameStarted" class="game-container">
   <img src="assets/fonsuma.jpg" class="background" alt="Fondo del juego">
 
@@ -6,10 +18,6 @@
     <span class="sum-number">{{ number1 }}</span> +
     <span class="sum-number">{{ number2 }}</span> =
     <span class="sum-number">?</span>
-  </div>
-
-  <div class="correct-answer">
-    <span class="sum-number">{{ correctAnswer }}</span>
   </div>
 
   <div class="rana-container">
