@@ -1,35 +1,46 @@
-<div class="resta-container">
-    <img src="assets/resta_fondo.jpg" alt="Background" class="background-image" />
-  
-    <div class="timer" [style.color]="timerColor">
-      {{ minutes | number: '2.0' }}:{{ seconds | number: '2.0' }}
+
+<div *ngIf="showAlert" class="intro-alert-container">
+  <div class="intro-alert">
+    <img src="assets/hablando.gif" alt="Introducción" class="alert-image"/>
+    <div class="intro-text typing-text">
+      Bienvenidos a resta, aquí aprenderás a divertirte mientras aprendes a restar. Te aparecerá una resta y deberás seleccionar la respuesta correcta. ¡Venga, da clic para empezar!
     </div>
+    <button (click)="startGame()" class="alert-button">Next</button>
+  </div>
+</div>
+
+
+<div *ngIf="gameStarted" class="resta-container">
+  <img src="assets/resta_fondo.jpg" alt="Background" class="background-image" />
   
-    <div class="money-container">
-      <img src="assets/moneda.png" alt="Coin" class="moneda" (click)="playMonedaSound()" />
-      <span class="money-text">$000.00</span>
-    </div>
+  <div class="timer" [style.color]="timerColor">
+    {{ minutes | number: '2.0' }}:{{ seconds | number: '2.0' }}
+  </div>
   
-    <div class="content-container">
-      <div class="equation-row" *ngFor="let equation of equations; let i = index">
-        <div class="equation">
-          <span class="number">{{ equation.minuend }}</span>
-          <span class="operator">-</span>
-          <span class="number">{{ equation.subtrahend }}</span>
-          <span class="operator">=</span>
-          <div class="answer">
-            <button
-              *ngFor="let option of equation.options"
-              class="answer-button"
-              (click)="checkAnswer(i, option)"
-              [class.correct]="option === equation.correctAnswer && equation.checked"
-              [class.incorrect]="option !== equation.correctAnswer && option === equation.selectedAnswer"
-            >
-              {{ option }}
-            </button>
-          </div>
+  <div class="money-container">
+    <img src="assets/moneda.png" alt="Coin" class="moneda" (click)="playMonedaSound()" />
+    <span class="money-text">$000.00</span>
+  </div>
+  
+  <div class="content-container">
+    <div class="equation-row" *ngFor="let equation of equations; let i = index">
+      <div class="equation">
+        <span class="number">{{ equation.minuend }}</span>
+        <span class="operator">-</span>
+        <span class="number">{{ equation.subtrahend }}</span>
+        <span class="operator">=</span>
+        <div class="answer">
+          <button
+            *ngFor="let option of equation.options"
+            class="answer-button"
+            (click)="checkAnswer(i, option)"
+            [class.correct]="option === equation.correctAnswer && equation.checked"
+            [class.incorrect]="option !== equation.correctAnswer && option === equation.selectedAnswer"
+          >
+            {{ option }}
+          </button>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

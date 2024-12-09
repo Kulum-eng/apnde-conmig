@@ -31,8 +31,46 @@ export class MultiplicacionComponent {
   isIncorrect: boolean = false;
   isCorrect: boolean = false;
   userResult: string = '';
+  showAlert: boolean = true;
+  introText: string = '';
+  fullIntroText: string = '¡Bienvenidos a multiplicar! Aquí aprenderás a divertirte mientras aprendes a multiplicar. Te aparecerá una ruleta y deberás girarla dos veces para obtener los números. Ingresa la respuesta correcta. ¡Venga, da clic para empezar!';
 
-  private spinAudio = new Audio('assets/giro-rulet.mp3'); 
+  private spinAudio = new Audio('assets/giro-rulet.mp3');
+  private typingInterval: any;
+
+  ngOnInit() {
+    this.playIntroAudio();
+    setTimeout(() => {
+      this.typeIntroText();
+    }, 2000); 
+  }
+
+  ngOnDestroy() {
+    if (this.spinAudio) {
+      this.spinAudio.pause();
+      this.spinAudio.currentTime = 0;
+    }
+    if (this.typingInterval) {
+      clearInterval(this.typingInterval);
+    }
+  }
+
+  playIntroAudio() {
+    const introAudio = new Audio('assets/multiplicacion-intro.mp3');
+    introAudio.play();
+  }
+
+  typeIntroText() {
+    let index = 0;
+    this.typingInterval = setInterval(() => {
+      if (index < this.fullIntroText.length) {
+        this.introText += this.fullIntroText[index];
+        index++;
+      } else {
+        clearInterval(this.typingInterval);
+      }
+    }, 50); 
+  }
 
   startSpinning(): void {
     if (this.firstNumber && this.secondNumber) {
@@ -40,7 +78,7 @@ export class MultiplicacionComponent {
       return;
     }
 
-    const speed = 50 + Math.random() * 50; 
+    const speed = 50 + Math.random() * 50;
     const totalSpins = 360 * 5;
 
     this.spinAudio.loop = true;
@@ -102,5 +140,19 @@ export class MultiplicacionComponent {
   private playAudio(src: string): void {
     const audio = new Audio(src);
     audio.play();
+  }
+
+  startGame() {
+    this.showAlert = false;
+    this.generateProblem();
+    this.generateWheel();
+  }
+
+  private generateProblem() {
+    this.firstNumber = Math.floor(Math.random() * 8) + 1;
+    this.secondNumber = Math.floor(Math.random() * 8) + 1;
+  }
+
+  private generateWheel() {
   }
 }

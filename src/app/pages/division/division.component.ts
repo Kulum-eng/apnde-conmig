@@ -1,19 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-division',
   standalone: true,
-  imports: [CommonModule], 
+  imports: [CommonModule],
   templateUrl: './division.component.html',
   styleUrls: ['./division.component.css'],
 })
-export class DivisionComponent {
+export class DivisionComponent implements OnInit {
   question: string = '';
   buttons: { value: number; isCorrect: boolean; color: string }[] = [];
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit() {
+    // Alerta de bienvenida cuando el componente se inicializa
+    this.showWelcomeAlert();
     this.generateDivisionProblem();
+  }
+
+  showWelcomeAlert(): void {
+    alert(
+      '¡Bienvenidos a Dividir! Aquí aprenderás a divertirte mientras aprendes a dividir. Aparecerán unos globos con números y abajo tendrás los números para dividir. Deberás ingresar la respuesta correcta. ¡Vamos, da click para empezar!'
+    );
   }
 
   generateDivisionProblem(): void {

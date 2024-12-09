@@ -2,10 +2,16 @@
   class="multiplicacion-container"
   style="background: url('assets/fondo-multiplicacion.jpg') no-repeat center center/cover; width: 100vw; height: 100vh;"
 >
-  <div id="yt-player"></div> 
+  <div id="yt-player"></div>
+
+  <div *ngIf="showAlert" class="alert-container">
+    <div class="intro-text">{{ introText }}</div>
+    <button class="start-button" (click)="startGame()">¡Da clic para empezar!</button>
+  </div>
+
   <div class="content-section">
     <div class="text-image-section">
-      <img src="assets/imagen.jpg" alt="imagende" />
+      <img src="assets/imagen.jpg" alt="imagen" />
     </div>
 
     <div class="wheel-section">
