@@ -9,8 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./resta.component.css'],
 })
 export class RestaComponent implements OnInit, OnDestroy {
-  showAlert: boolean = true;  // Para mostrar la alerta de bienvenida
-  gameStarted: boolean = false;  // Para controlar el inicio del juego
+  showAlert: boolean = true; 
+  gameStarted: boolean = false; 
 
   equations: {
     minuend: number;
@@ -41,7 +41,6 @@ export class RestaComponent implements OnInit, OnDestroy {
     clearInterval(this.timeInterval);
   }
 
-  // Método para empezar el juego
   startGame(): void {
     this.showAlert = false;
     this.gameStarted = true;
@@ -85,6 +84,8 @@ export class RestaComponent implements OnInit, OnDestroy {
       if (selectedAnswer === this.equations[index].correctAnswer) {
         this.equations[index].checked = true;
         this.correctAudio.play();
+        // Mostrar alerta motivacional
+        alert('¡Has ganado! Sigue así y mantén tu racha ganadora.');
       } else {
         this.incorrectAudio.pause();
         this.incorrectAudio.currentTime = 0;

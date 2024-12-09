@@ -118,11 +118,16 @@ export class MultiplicacionComponent {
       this.isIncorrect = false;
       this.isCorrect = true;
       this.playAudio('assets/correcto.mp3');
+      this.showSuccessAlert(); // Mostrar la alerta de enhorabuena
     } else {
       this.isCorrect = false;
       this.isIncorrect = true;
       this.playAudio('assets/mala.mp3');
     }
+  }
+
+  private showSuccessAlert(): void {
+    alert('¡Enhorabuena! Sigue así, estás aprendiendo muy rápido 🎉');
   }
 
   reset(): void {
